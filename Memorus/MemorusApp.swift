@@ -1,6 +1,8 @@
 //
 //  MemorusApp.swift
 //  Memorus
+//  From Esperanto Memori -> to remember something
+//  Memorus means -> i will remember
 //
 //  Created by Paul-Edouard Boudier on 23/02/2024.
 //

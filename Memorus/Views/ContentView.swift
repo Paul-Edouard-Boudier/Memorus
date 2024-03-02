@@ -9,54 +9,41 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
     @Query private var memoroj: [Memoro]
-
+    
+    @State private var path = NavigationPath()
+    @State private var searchText = ""
+    @Environment(\.modelContext) private var modelContext
+    
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        NavigationStack(path: $path) {
+            MemorojView()
+            .navigationTitle("Les memoroj")
+            .navigationDestination(for: Memoro.self) { memoro in
+                EditMemoroView(memoro: memoro, navigationPath: $path)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+    
+    private func addMemoro() {
+        let memoro = Memoro(title: "", body: "")
+        modelContext.insert(memoro)
+        path.append(memoro)
     }
 }
 
 #Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    do {
+        let previewer = try Previewer()
+        return ContentView().modelContainer(previewer.container)
+    } catch {
+        return Text("Failed to create preview \(error.localizedDescription)")
+    }
+    
 }
+//
+//#Preview {
+//    ContentView()
+//        .modelContainer(for: Item.self, inMemory: true)
+//}

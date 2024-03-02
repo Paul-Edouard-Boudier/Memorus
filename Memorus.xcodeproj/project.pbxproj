@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4287AF482B9256DB003519B0 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287AF472B9256DB003519B0 /* Previewer.swift */; };
+		4287AF4A2B925EC1003519B0 /* EditMemoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287AF492B925EC1003519B0 /* EditMemoroView.swift */; };
+		42A1C5FB2B8FB0ED00736D2A /* Memoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1C5FA2B8FB0ED00736D2A /* Memoro.swift */; };
+		42A1C5FD2B8FB17D00736D2A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1C5FC2B8FB17D00736D2A /* Tag.swift */; };
+		42A1C5FF2B8FB1CF00736D2A /* MemoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1C5FE2B8FB1CF00736D2A /* MemoroView.swift */; };
+		42A1C6032B8FB77F00736D2A /* MemorojView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1C6022B8FB77F00736D2A /* MemorojView.swift */; };
 		42B219602B892E6F00DC12C6 /* MemorusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2195F2B892E6F00DC12C6 /* MemorusApp.swift */; };
 		42B219622B892E6F00DC12C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B219612B892E6F00DC12C6 /* ContentView.swift */; };
 		42B219642B892E6F00DC12C6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B219632B892E6F00DC12C6 /* Item.swift */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4287AF472B9256DB003519B0 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
+		4287AF492B925EC1003519B0 /* EditMemoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoroView.swift; sourceTree = "<group>"; };
+		42A1C5FA2B8FB0ED00736D2A /* Memoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memoro.swift; sourceTree = "<group>"; };
+		42A1C5FC2B8FB17D00736D2A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		42A1C5FE2B8FB1CF00736D2A /* MemoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoroView.swift; sourceTree = "<group>"; };
+		42A1C6022B8FB77F00736D2A /* MemorojView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorojView.swift; sourceTree = "<group>"; };
 		42B2195C2B892E6F00DC12C6 /* Memorus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B2195F2B892E6F00DC12C6 /* MemorusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorusApp.swift; sourceTree = "<group>"; };
 		42B219612B892E6F00DC12C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +85,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42A1C5F82B8FB0A900736D2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4287AF492B925EC1003519B0 /* EditMemoroView.swift */,
+				42B219612B892E6F00DC12C6 /* ContentView.swift */,
+				42A1C5FE2B8FB1CF00736D2A /* MemoroView.swift */,
+				42A1C6022B8FB77F00736D2A /* MemorojView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42A1C5F92B8FB0B000736D2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42A1C5FA2B8FB0ED00736D2A /* Memoro.swift */,
+				42A1C5FC2B8FB17D00736D2A /* Tag.swift */,
+				42B219632B892E6F00DC12C6 /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		42B219532B892E6F00DC12C6 = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +129,12 @@
 		42B2195E2B892E6F00DC12C6 /* Memorus */ = {
 			isa = PBXGroup;
 			children = (
+				42A1C5F92B8FB0B000736D2A /* Models */,
+				42A1C5F82B8FB0A900736D2A /* Views */,
 				42B2195F2B892E6F00DC12C6 /* MemorusApp.swift */,
-				42B219612B892E6F00DC12C6 /* ContentView.swift */,
-				42B219632B892E6F00DC12C6 /* Item.swift */,
 				42B219652B892E7100DC12C6 /* Assets.xcassets */,
 				42B219672B892E7100DC12C6 /* Preview Content */,
+				4287AF472B9256DB003519B0 /* Previewer.swift */,
 			);
 			path = Memorus;
 			sourceTree = "<group>";
@@ -260,9 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4287AF4A2B925EC1003519B0 /* EditMemoroView.swift in Sources */,
 				42B219622B892E6F00DC12C6 /* ContentView.swift in Sources */,
 				42B219642B892E6F00DC12C6 /* Item.swift in Sources */,
+				42A1C5FD2B8FB17D00736D2A /* Tag.swift in Sources */,
+				4287AF482B9256DB003519B0 /* Previewer.swift in Sources */,
+				42A1C5FB2B8FB0ED00736D2A /* Memoro.swift in Sources */,
 				42B219602B892E6F00DC12C6 /* MemorusApp.swift in Sources */,
+				42A1C6032B8FB77F00736D2A /* MemorojView.swift in Sources */,
+				42A1C5FF2B8FB1CF00736D2A /* MemoroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
