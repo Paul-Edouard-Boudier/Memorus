@@ -11,17 +11,37 @@ import SwiftData
 struct MemorojView: View {
     @Environment(\.modelContext) var modelContext
     @Query var memoroj: [Memoro]
+    @Query var tags: [Tag]
+    let columns = [GridItem(.adaptive(minimum: 200))]
+    let rows = [GridItem(.fixed(30))]
+//    var i: Int = 0, j: Int = 0
     
     var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        List {
-            ForEach(memoroj) { memoro in
-                NavigationLink(value: memoro) {
-                    Text(memoro.title)
+        var i: Int = 0, j: Int = 0
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(tags, id: \.self) { tag in
+//                    j = 0
+                    TagView(tag: tag)
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows) {
+                            ForEach(memoroj, id: \.self) { memoro in
+                                if memoro.tag == tag {
+                                    NavigationLink(value: memoro) {
+                                        MemoroView(memoro: memoro)
+                                            
+                                    }
+                                    
+                                }
+                            }
+                            .onDelete(perform: deleteMemoro)
+                        }
+                    }
+                    .padding(.trailing)
+                    Divider()
                 }
                 
             }
-            .onDelete(perform: deleteMemoro)
         }
     }
     

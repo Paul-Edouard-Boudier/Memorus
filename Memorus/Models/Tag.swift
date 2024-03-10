@@ -11,7 +11,7 @@ import SwiftData
 @Model
 /// Just a Tag to regroup Memoroj under same themes
 class Tag {
-    
+    /// Name of tag
     var tagName: String = ""
 //    var imageDescription: ??
     var memoroj: [Memoro]? = [Memoro]()

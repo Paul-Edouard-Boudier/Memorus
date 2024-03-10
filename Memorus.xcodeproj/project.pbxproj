@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422D1C892B9D2538002B6B9F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D1C882B9D2538002B6B9F /* TagView.swift */; };
+		422D1C8B2B9D273B002B6B9F /* MemorojTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D1C8A2B9D273B002B6B9F /* MemorojTagView.swift */; };
 		4287AF482B9256DB003519B0 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287AF472B9256DB003519B0 /* Previewer.swift */; };
 		4287AF4A2B925EC1003519B0 /* EditMemoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287AF492B925EC1003519B0 /* EditMemoroView.swift */; };
 		42A1C5FB2B8FB0ED00736D2A /* Memoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1C5FA2B8FB0ED00736D2A /* Memoro.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		422D1C882B9D2538002B6B9F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		422D1C8A2B9D273B002B6B9F /* MemorojTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorojTagView.swift; sourceTree = "<group>"; };
 		4287AF472B9256DB003519B0 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 		4287AF492B925EC1003519B0 /* EditMemoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoroView.swift; sourceTree = "<group>"; };
 		42A1C5FA2B8FB0ED00736D2A /* Memoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memoro.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				4287AF492B925EC1003519B0 /* EditMemoroView.swift */,
 				42B219612B892E6F00DC12C6 /* ContentView.swift */,
 				42A1C5FE2B8FB1CF00736D2A /* MemoroView.swift */,
+				422D1C8A2B9D273B002B6B9F /* MemorojTagView.swift */,
+				422D1C882B9D2538002B6B9F /* TagView.swift */,
 				42A1C6022B8FB77F00736D2A /* MemorojView.swift */,
 			);
 			path = Views;
@@ -295,6 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4287AF4A2B925EC1003519B0 /* EditMemoroView.swift in Sources */,
+				422D1C8B2B9D273B002B6B9F /* MemorojTagView.swift in Sources */,
+				422D1C892B9D2538002B6B9F /* TagView.swift in Sources */,
 				42B219622B892E6F00DC12C6 /* ContentView.swift in Sources */,
 				42B219642B892E6F00DC12C6 /* Item.swift in Sources */,
 				42A1C5FD2B8FB17D00736D2A /* Tag.swift in Sources */,

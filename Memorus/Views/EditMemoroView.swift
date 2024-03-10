@@ -28,7 +28,7 @@ struct EditMemoroView: View {
 //                    .font(.custom("HeleveticaNeue", size: 17))
                     .padding(.horizontal)
                     .navigationTitle("Body of memoro")
-//                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             }
         }
 //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
