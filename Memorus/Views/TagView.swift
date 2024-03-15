@@ -9,16 +9,16 @@ import SwiftUI
 
 struct TagView: View {
     @Environment(\.modelContext) var modelContext
-    @Bindable var tag: Tag
+    var tag: Tag?
     
     var body: some View {
         Section {
-            Text(tag.tagName)
+            Text(tag?.tagName ?? "Aucun tag")
                 .padding(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
         }
-        .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
-        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        
     }
 }
 

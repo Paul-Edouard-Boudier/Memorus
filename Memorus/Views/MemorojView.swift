@@ -14,24 +14,31 @@ struct MemorojView: View {
     @Query var tags: [Tag]
     let columns = [GridItem(.adaptive(minimum: 200))]
     let rows = [GridItem(.fixed(30))]
-//    var i: Int = 0, j: Int = 0
     
     var body: some View {
-        var i: Int = 0, j: Int = 0
         ScrollView {
             LazyVGrid(columns: columns) {
                 ForEach(tags, id: \.self) { tag in
-//                    j = 0
-                    TagView(tag: tag)
+                    NavigationView {
+                        HStack {
+                            TagView(tag: tag)
+                            Spacer()
+                            NavigationLink(destination: MemorojTagView(tag: tag)) {
+                                Text("Tout voir")
+                                    .padding()
+                                    .fontWeight(.light)
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 40)
                     ScrollView(.horizontal) {
                         LazyHGrid(rows: rows) {
-                            ForEach(memoroj, id: \.self) { memoro in
+                            let memorojForTag = getMemorojForTag(for: tag)
+                            ForEach(memorojForTag.prefix(4), id: \.self) { memoro in
                                 if memoro.tag == tag {
                                     NavigationLink(value: memoro) {
                                         MemoroView(memoro: memoro)
-                                            
                                     }
-                                    
                                 }
                             }
                             .onDelete(perform: deleteMemoro)
@@ -40,7 +47,31 @@ struct MemorojView: View {
                     .padding(.trailing)
                     Divider()
                 }
-                
+                NavigationView {
+                    HStack {
+                        TagView(tag: nil)
+                        Spacer()
+                        NavigationLink(destination: MemorojTagView(tag: nil)) {
+                            Text("Tout voir")
+                                .padding()
+                                .fontWeight(.light)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: 40)
+                ScrollView(.horizontal) {
+                    LazyHGrid(rows: rows) {
+                        let memorojForTag = getMemorojForTag(for: nil)
+                        ForEach(memorojForTag.prefix(4), id: \.self) { memoro in
+                            NavigationLink(value: memoro) {
+                                MemoroView(memoro: memoro)
+                            }
+                        }
+                        .onDelete(perform: deleteMemoro)
+                    }
+                }
+                .padding(.trailing)
+                Divider()
             }
         }
     }
@@ -50,6 +81,16 @@ struct MemorojView: View {
             let memoro = memoroj[offset]
             modelContext.delete(memoro)
         }
+    }
+    
+    func getMemorojForTag(for tag: Tag? = nil) -> [Memoro] {
+        if tag != nil {
+            return memoroj.filter { $0.tag == tag}
+            
+        } else {
+            return memoroj.filter { $0.tag == nil }
+        }
+        
     }
     
 }

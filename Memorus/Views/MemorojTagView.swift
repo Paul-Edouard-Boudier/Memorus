@@ -10,21 +10,22 @@ import SwiftData
 
 struct MemorojTagView: View {
     @Environment(\.modelContext) var modelContext
-    @Bindable var tag: Tag
+    var tag: Tag?
     @Query var memoroj: [Memoro]
-    
-    
+
     let columns = [GridItem(.adaptive(minimum: 200))]
     
     var body: some View {
+        let memorojForTag = getMemorojForTag(for: tag)
+        
         Section {
             TagView(tag: tag)
         }
         Section {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(memoroj, id: \.self) { memoro in
-                        if memoro.tag?.tagName == tag.tagName {
+                    ForEach(memorojForTag, id: \.self) { memoro in
+                        if memoro.tag?.tagName == tag?.tagName {
                             MemoroView(memoro: memoro)
                                 .padding(.trailing)
                         }
@@ -35,7 +36,18 @@ struct MemorojTagView: View {
         }
         
     }
+    
+    func getMemorojForTag(for tag: Tag? = nil) -> [Memoro] {
+        if tag != nil {
+            return memoroj.filter { $0.tag == tag}
+            
+        } else {
+            return memoroj.filter { $0.tag == nil }
+        }
+        
+    }
 }
+
 
 #Preview {
     do {
